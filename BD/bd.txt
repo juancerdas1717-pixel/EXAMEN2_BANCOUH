@@ -1,0 +1,89 @@
+﻿-- Doble guion para comentarios
+
+/*
+linea de de comentarios
+linea de comentarios
+*/
+
+-- creacion de de la baes de datos BANCOUH
+create database BancoUH
+Go
+use BancoUH
+Go
+-- creacion de las tabla
+
+create table Usuarios
+(
+   correo varchar(50) primary key,
+   clave varchar(50) not null,
+   nombre varchar(100)
+)
+
+
+-- Insertar usuarios
+Insert into USuarios (correo, clave, nombre) values ('@correo,@clave,@nombre')
+Insert into USuarios (correo, clave, nombre) values ('Jose@uh.com','456','Jose Ramirez')
+Insert into USuarios (correo, clave, nombre) values ('Suana@uh.com','487','Susana Jimenez')
+
+-- consultar usuarios
+
+Select * from usuarios
+Select correo, clave, nombre from usuarios
+select correo from usuarios
+select * from usuarios where correo = 'maria@uh.com' -- filtro se usa el la palabra "where"
+
+-- Actualizar usuarios
+update Usuarios set correo = 'Karla@uh.com', clave='999' where correo = 'Karka@uh.com'
+
+-- borrar usuarios
+
+delete usuarios where correo = 'jose@uh.com'
+
+                                                   
+
+-- Tabla para almacenar los tecnicos
+USE BancoUH;
+GO
+
+IF OBJECT_ID('dbo.Tecnicos', 'U') IS NULL
+BEGIN
+    CREATE TABLE dbo.Tecnicos
+    (
+        tecnicoID INT NOT NULL PRIMARY KEY,
+        nombre VARCHAR(100) NOT NULL,
+        especialidad VARCHAR(100) NOT NULL
+    );
+END;
+GO
+Insert Into dbo.Tecnicos
+(tecnicoID, nombre, especialidad)
+values
+(1,'carlos','redes');
+
+
+-- Consultar tecnicos
+Use BancoUH
+GO
+SELECT * FROM dbo.Tecnicos;
+GO
+
+USE BancoUH;
+GO
+
+IF OBJECT_ID('dbo.Asignaciones', 'U') IS NULL
+BEGIN
+use BancoUH
+
+    CREATE TABLE dbo.Asignaciones
+    (
+        AsignacionID INT NOT NULL PRIMARY KEY,
+        ReparacionID INT NOT NULL,
+        TecnicoID INT NOT NULL,
+        FechaAsignacion DATE NOT NULL
+    );
+END;
+GO
+
+SELECT * FROM dbo.Asignaciones;
+GO
+
